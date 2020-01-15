@@ -1,3 +1,3 @@
-# gb-color-game-with-redux
+# rgb-color-game-with-redux
 
 Simple game to get familiar with redux
