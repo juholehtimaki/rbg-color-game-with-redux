@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Option } from "./Option.jsx";
 import { setQuestion } from "../actions/index.js";
+import Grid from "@material-ui/core/Grid";
 
 export const Game = () => {
   const score = useSelector(state => state.score);
@@ -24,8 +25,8 @@ export const Game = () => {
 
       options.push(option);
 
-      //two fake options
-      for (let i = 1; i <= 2; i++) {
+      //fake options
+      while (options.length < 4) {
         option = {
           color: {
             r: Math.floor(Math.random() * 256),
@@ -57,14 +58,20 @@ export const Game = () => {
             Pick the color: ({correctAnswer.r}, {correctAnswer.g},{" "}
             {correctAnswer.b})
           </h4>
-          <div className="answers-box">
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            className="answers-box"
+          >
             {question.map(option => (
               <Option
                 option={option}
                 key={option.color.r + option.color.g + option.color.b}
               />
             ))}
-          </div>
+          </Grid>
         </>
       );
     }

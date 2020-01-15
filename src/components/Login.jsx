@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setName } from "../actions/index.js";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Container from "@material-ui/core/Container";
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -11,19 +14,16 @@ export const Login = () => {
   };
 
   return (
-    <div className="container">
+    <Container maxWidth="sm">
       <h1>Login</h1>
       <form onSubmit={customSubmit}>
         <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            id="nameField"
-            placeholder="Enter name"
-          />
+          <TextField type="text" id="nameField" label="Enter name" />
         </div>
-        <button type="submit">Confirm</button>
+        <Button type="submit" variant="contained" color="primary">
+          Confirm
+        </Button>
       </form>
-    </div>
+    </Container>
   );
 };
