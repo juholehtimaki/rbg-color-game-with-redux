@@ -9,7 +9,7 @@ export const Game = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const generateQuestions = () => {
+    const generateQuestion = () => {
       let options = [];
 
       //correct option
@@ -42,7 +42,7 @@ export const Game = () => {
 
       dispatch(setQuestion(options));
     };
-    generateQuestions();
+    generateQuestion();
   }, [dispatch, score]);
 
   const questionRender = () => {
@@ -59,7 +59,10 @@ export const Game = () => {
           </h4>
           <div className="answers-box">
             {question.map(option => (
-              <Option option={option} key={option.color.r} />
+              <Option
+                option={option}
+                key={option.color.r + option.color.g + option.color.b}
+              />
             ))}
           </div>
         </>
